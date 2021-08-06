@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Persistance\DTO\" />
     <Folder Include="Persistance\Models\" />
     <Folder Include="Persistance\ViewModels\" />
   </ItemGroup>

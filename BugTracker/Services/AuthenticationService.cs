@@ -8,9 +8,9 @@ namespace BugTracker.Services
 {
     public class AuthenticationService
     {
-        private readonly int NumberOfHashIterations = 10000;
-        private readonly int hashSize = 20;
-        private readonly int saltSize = 16;
+        private const int NumberOfHashIterations = 10000;
+        private const int hashSize = 20;
+        private const int saltSize = 16;
         /// <summary>
         /// Takes a password, create a long random salt, create a hash and concatenate them.
         /// </summary>

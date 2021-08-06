@@ -1,4 +1,5 @@
 using BugTracker.Persistance;
+using BugTracker.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,6 +28,8 @@ namespace BugTracker
         {
             services.AddDbContext<BugtrackerContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("LocalHost")));
+            services.AddSingleton<AuthenticationService>();
+            services.AddTransient<UserService>();
             services.AddControllersWithViews();
         }
 
