@@ -17,7 +17,7 @@ namespace BugTracker.Controllers
         public HomeController(ILogger<HomeController> logger,UserService userService)
         {
             _logger =logger;
-            userService = _service;
+            _service = userService;
         }
 
         public IActionResult Register()
