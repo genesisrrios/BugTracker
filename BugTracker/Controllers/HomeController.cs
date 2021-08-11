@@ -13,11 +13,11 @@ namespace BugTracker.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly UserService service;
+        private readonly UserService _service;
         public HomeController(ILogger<HomeController> logger,UserService userService)
         {
-            _logger = logger;
-            userService = service;
+            _logger =logger;
+            userService = _service;
         }
 
         public IActionResult Register()
