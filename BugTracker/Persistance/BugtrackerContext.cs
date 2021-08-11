@@ -19,11 +19,22 @@ namespace BugTracker.Persistance
         {
         }
 
+        public virtual DbSet<Groups> Groups { get; set; }
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<UserGroup> UserGroup { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
+
+            modelBuilder.Entity<Groups>(entity =>
+            {
+                entity.Property(e => e.GroupId).ValueGeneratedNever();
+
+                entity.Property(e => e.CreatedDate).HasPrecision(4);
+
+                entity.Property(e => e.Picture).IsUnicode(false);
+            });
 
             modelBuilder.Entity<User>(entity =>
             {
@@ -32,6 +43,11 @@ namespace BugTracker.Persistance
                 entity.Property(e => e.LastLogin).HasPrecision(4);
 
                 entity.Property(e => e.ProfilePicture).IsUnicode(false);
+            });
+
+            modelBuilder.Entity<UserGroup>(entity =>
+            {
+                entity.Property(e => e.DateJoined).HasPrecision(4);
             });
 
             OnModelCreatingPartial(modelBuilder);

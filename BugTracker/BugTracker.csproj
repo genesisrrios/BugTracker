@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <Folder Include="Persistance\Models\" />
-    <Folder Include="Persistance\ViewModels\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
 
   <ItemGroup>

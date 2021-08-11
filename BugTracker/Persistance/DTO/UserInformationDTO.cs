@@ -6,13 +6,16 @@ using System.Threading.Tasks;
 
 namespace BugTracker.Persistance.DTO
 {
-    public class UserSessionInformationDTO
+    public class UserInformationDTO
     {
         [JsonPropertyName("user_id")]
-        public string UserId { get; set; }
+        public int UserId { get; set; }
+        [JsonPropertyName("username")]
+        public string UserName { get; set; }
         [JsonPropertyName("name")]
         public string Name { get; set; }
         [JsonPropertyName("profile_picture")]
         public string ProfilePicture { get; set; }
+
     }
 }
