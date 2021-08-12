@@ -18,19 +18,23 @@ namespace BugTracker.Services
             bugtrackerContext = context;
             authenticationService = authentication;
         }
-        public async Task<AppRes<UserInformationDTO>> GetAuthenticatedUserInformationAsync(string username, string password)
+        public async Task<AppResult<UserInformationDTO>> GetAuthenticatedUserInformationAsync(string username, string password)
         {
-            var result = new AppRes<UserInformationDTO>();
+            var result = new AppResult<UserInformationDTO>();
 
             try
             {
                 //check if the provided user name returns a user.
                 if (String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password))
+                {
+                    result.Success = false;
+                    result.Message = "username or password cannot be empty";
                     return result;
+                }
 
                 var user = await bugtrackerContext.User
                     .Where(x => x.Username == username)
-                    .SingleAsync();
+                    .SingleOrDefaultAsync();
 
                 if (user == default)
                 {
