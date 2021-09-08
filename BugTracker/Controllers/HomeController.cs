@@ -29,27 +29,32 @@ namespace BugTracker.Controllers
         {
             return View(new AppResult<UserLoginDTO>());
         }
+        public IActionResult Home(AppResult<UserLoginDTO> model)
+        {
+            return View(model);
+        }
         [HttpPost]
         public async Task<IActionResult> Login(UserLoginDTO model)
         {
-            if (ModelState.IsValid)
+            var userInfo = await _service.GetAuthenticatedUserInformationAsync(model.Username, model.Password);
+            if (userInfo.Success)
             {
-                var userInfo = await _service.GetAuthenticatedUserInformationAsync(model.Username, model.Password);
-                if (userInfo.Success)
-                {
-                    HttpContext.Session.SetInt32(HttpConstants.UserId, userInfo.Result.UserId);
-                    HttpContext.Session.SetString(HttpConstants.Username, userInfo.Result.UserName);
-                    HttpContext.Session.SetString(HttpConstants.Name, userInfo.Result.Name);
-                    HttpContext.Session.SetString(HttpConstants.ProfilePicture, userInfo.Result.ProfilePicture);
-                }
-                return View(new AppResult<UserLoginDTO>
+                HttpContext.Session.SetInt32(HttpConstants.UserId, userInfo.Result.UserId);
+                HttpContext.Session.SetString(HttpConstants.Username, userInfo.Result.UserName);
+                HttpContext.Session.SetString(HttpConstants.Name, userInfo.Result.Name);
+                HttpContext.Session.SetString(HttpConstants.ProfilePicture, userInfo.Result.ProfilePicture ?? "");
+                return View("Home", new AppResult<UserLoginDTO>
                 {
                     Message = userInfo.Message,
                     Success = userInfo.Success,
                     Result = model
                 });
             }
-            return View(new AppResult<UserLoginDTO>());
+            return View(new AppResult<UserLoginDTO>
+            {
+                Message = userInfo.Message,
+                Success = false
+            });
         }
     }
 }
