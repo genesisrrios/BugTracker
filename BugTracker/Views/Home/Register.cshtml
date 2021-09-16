@@ -5,7 +5,10 @@
 	<div class="col">
 		<form class="form-signin" method="post">
 			<div class="text-center">
-				<img class="mb-4" src="~/images/bug_tracker_icon.jpg" alt="bug tracker icon" width="72" height="72">
+				<div class="input-group mb-3">
+					<input type="file" accept="image/*" asp-for="Result.Photo" class="form-control" id="inputGroupFile02">
+					<label class="input-group-text" for="inputGroupFile02">Upload profile picture</label>
+				</div>
 			</div>
 			<div class="form-group row">
 				<div class="col-md-4"></div>
@@ -36,3 +39,8 @@
 		</form>
 	</div>
 </div>
+@section Scripts{ 
+<script>
+	
+</script>
+}
