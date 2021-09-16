@@ -23,7 +23,7 @@ namespace BugTracker.Controllers
 
         public IActionResult Register()
         {
-            return View();
+            return View(new AppResult<UserRegisterDTO>());
         }
         public IActionResult Login()
         {
