@@ -4,26 +4,45 @@
 	var Username = Model.Result.Username;
 }
 <div class="row">
-	<div class="col text-center">
+	<div class="col">
 		<form class="form-signin" method="post">
-			<img class="mb-4" src="~/images/bug_tracker_icon.jpg" alt="bug tracker icon" width="72" height="72">
-			<label asp-for="@Username" class="sr-only"></label>
-			<input asp-for="@Username" type="text" class="form-control">
-			<label asp-for="@Password" class="sr-only">Password</label>
-			<input asp-for="@Password" type="password" class="form-control">
-			<a asp-action="Register">New? Register here.</a>
-			<div class="checkbox mb-3">
-				<label>
-					<input type="checkbox" value="remember-me"> Remember me
-				</label>
+			<div class="text-center">
+				<img class="mb-4" src="~/images/bug_tracker_icon.jpg" alt="bug tracker icon" width="72" height="72">
 			</div>
-			@if (!Model.Success)
-			{
-				<div class="alert alert-danger" role="alert">
-					@Model.Message
+			<div class="form-group row">
+				<div class="col-md-4"></div>
+				<div class="col-md-4">
+					<label asp-for="@Username" class="form-label">Username:</label>
+					<div class="input-group mb-3  col-md-4">
+						<input type="text" class="form-control" asp-for="@Username" aria-describedby="basic-addon1">
+					</div>
 				</div>
-			}
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+				<div class="col-md-4"></div>
+				<div class="col-md-4"></div>
+				<div class="col-md-4">
+					<label asp-for="@Password" class="form-label">Password:</label>
+					<div class="input-group mb-3">
+						<input type="text" class="form-control" asp-for="@Password" aria-label="Password" aria-describedby="basic-addon1">
+					</div>
+					<div class="checkbox mb-3">
+						<label>
+							<input type="checkbox" value="remember-me"> Remember me
+						</label>
+						@if (!Model.Success)
+						{
+							<div class="alert alert-danger" role="alert">
+								@Model.Message
+							</div>
+						}
+					</div>
+				</div>
+				<div class="col-md-4"></div>
+				<div class="col-md-4"></div>
+				<div class="col-md-4 text-center">
+					<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+				</div>
+				<div class="col-md-4"></div>
+			</div>
 		</form>
 	</div>
 </div>
