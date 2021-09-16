@@ -55,7 +55,7 @@ namespace BugTracker.Services
                 result.Result = new UserInformationDTO
                 {
                     UserId = user.UserId,
-                    UserName = user.Username,
+                    Username = user.Username,
                     Name = user.Name,
                     ProfilePicture = user.ProfilePicture,
                 };
@@ -66,6 +66,11 @@ namespace BugTracker.Services
                 result.Message = ex.Message;
             }
             return result;
+        }
+
+        internal Task<UserInformationDTO> RegisterUser(UserRegisterDTO result)
+        {
+            throw new NotImplementedException();
         }
     }
 }

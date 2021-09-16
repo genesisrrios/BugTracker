@@ -4,13 +4,15 @@
 <div class="row">
 	<div class="col">
 		<form class="form-signin" method="post">
-			<div class="text-center">
-				<div class="input-group mb-3">
-					<input type="file" accept="image/*" asp-for="Result.Photo" class="form-control" id="inputGroupFile02">
-					<label class="input-group-text" for="inputGroupFile02">Upload profile picture</label>
-				</div>
-			</div>
 			<div class="form-group row">
+				<div class="col-md-4"></div>
+				<div class="col-md-4">
+					<label asp-for="@Model.Result.ProfilePhoto" class="form-label">Photo:</label>
+					<div class="input-group mb-3">
+						<input type="file" accept="image/*" asp-for="Result.ProfilePhoto" class="form-control" id="inputGroupFile02">
+					</div>
+				</div>
+				<div class="col-md-4"></div>
 				<div class="col-md-4"></div>
 				<div class="col-md-4">
 					<label asp-for="@Model.Result.Username" class="form-label">Username:</label>
@@ -18,21 +20,36 @@
 						<input type="text" class="form-control" asp-for="@Model.Result.Username" aria-describedby="basic-addon1">
 					</div>
 				</div>
+				<div class="col-md-4">
+					<label asp-for="@Model.Result.Name" class="form-label">Name:</label>
+					<div class="input-group mb-3  col-md-4">
+						<input type="text" class="form-control" asp-for="@Model.Result.Name" aria-describedby="basic-addon1">
+					</div>
+				</div>
+				<div class="col-md-4">
+					<label asp-for="@Model.Result.LastName" class="form-label">Last name:</label>
+					<div class="input-group mb-3  col-md-4">
+						<input type="text" class="form-control" asp-for="@Model.Result.LastName" aria-describedby="basic-addon1">
+					</div>
+				</div>
 				<div class="col-md-4"></div>
 				<div class="col-md-4"></div>
 				<div class="col-md-4">
 					<label asp-for="@Model.Result.Password" class="form-label">Password:</label>
 					<div class="input-group mb-3">
-						<input type="text" class="form-control" asp-for="@Model.Result.Password" aria-label="Password" aria-describedby="basic-addon1">
+						<input type="password" class="form-control" asp-for="@Model.Result.Password" aria-label="Password" aria-describedby="basic-addon1">
+					</div>
+				</div>
+				<div class="col-md-4">
+					<label asp-for="@Model.Result.SecondPassword" class="form-label">Re-enter password:</label>
+					<div class="input-group mb-3">
+						<input type="password" class="form-control" asp-for="@Model.Result.SecondPassword" aria-label="Password" aria-describedby="basic-addon1">
 					</div>
 				</div>
 				<div class="col-md-4"></div>
-
-
-
 				<div class="col-md-4"></div>
 				<div class="col-md-4 text-center">
-					<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+					<button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
 				</div>
 				<div class="col-md-4"></div>
 			</div>

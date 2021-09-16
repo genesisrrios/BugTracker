@@ -16,14 +16,17 @@ namespace BugTracker.Persistance.DTO
         [JsonPropertyName("password")]
         [Required]
         public string Password { get; set; }
-        [JsonPropertyName("photo")]
+        [JsonPropertyName("profile_photo")]
         [Required]
-        public IFormFile Photo { get; set; }
+        public IFormFile ProfilePhoto { get; set; }
         [JsonPropertyName("second_password")]
         [Required]
         public string SecondPassword { get; set; }
-        [JsonPropertyName("profile_photo")]
+
+        [JsonPropertyName("name")]
         [Required]
-        public string ProfilePhoto { get; set; }
+        public string Name { get; set; }
+        [JsonPropertyName("last_name")]
+        public string LastName { get; set; }
     }
 }

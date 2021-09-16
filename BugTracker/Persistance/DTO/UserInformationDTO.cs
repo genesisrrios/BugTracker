@@ -11,7 +11,7 @@ namespace BugTracker.Persistance.DTO
         [JsonPropertyName("user_id")]
         public int UserId { get; set; }
         [JsonPropertyName("username")]
-        public string UserName { get; set; }
+        public string Username { get; set; }
         [JsonPropertyName("name")]
         public string Name { get; set; }
         [JsonPropertyName("profile_picture")]
